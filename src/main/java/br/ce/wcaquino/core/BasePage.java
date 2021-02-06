@@ -96,12 +96,15 @@ public class BasePage {
 	
 	/********* Botao ************/
 	
-	public void clicarBotao(String id) {
-		getDriver().findElement(By.id(id)).click();
-	}
-	
 	public void clicarBotao(By by) {
 		getDriver().findElement(by).click();
+	}
+	public void clicarBotao(String id) {
+		clicarBotao(By.id(id));
+	}
+	
+	public void clicarBotaoPorTexto(String texto){
+		clicarBotao(By.xpath("//button[.='"+texto+"']"));
 	}
 	
 	public String obterValueElemento(String id) {
