@@ -1,7 +1,9 @@
-package br.ce.wcaquino.test;
+package br.ce.wcaquino.tests;
 
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -14,12 +16,13 @@ import br.ce.wcaquino.core.DriverFactory;
 import br.ce.wcaquino.page.MenuPage;
 import br.ce.wcaquino.page.ResumoPage;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ResumoTest extends BaseTest {
 	private MenuPage menuPage = new MenuPage();
 	private ResumoPage resumoPage = new ResumoPage();
 
 	@Test
-	public void testExcluirMovimentacao(){
+	public void test1_ExcluirMovimentacao(){
 		menuPage.acessarTelaResumo();
 		
 		resumoPage.excluirMovimentacao();
@@ -28,7 +31,7 @@ public class ResumoTest extends BaseTest {
 	}
 	
 	@Test
-	public void testResumoMensal(){
+	public void test2_ResumoMensal(){
 		menuPage.acessarTelaResumo();
 		
 		Assert.assertEquals("Seu Barriga - Extrato", getDriver().getTitle());

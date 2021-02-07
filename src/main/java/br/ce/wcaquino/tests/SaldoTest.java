@@ -1,4 +1,4 @@
-package br.ce.wcaquino.test;
+package br.ce.wcaquino.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
