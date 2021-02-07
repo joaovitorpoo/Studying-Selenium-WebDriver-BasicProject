@@ -18,8 +18,8 @@ public class MovimentacaoTest extends BaseTest {
 	public void testInserirMovimentacao(){
 		menuPage.acessarTelaInserirMovimentacao();
 		
-		movPage.setDataMovimentacao("01/09/2017");
-		movPage.setDataPagamento("02/09/2017");
+		movPage.setDataMovimentacao(DataUtils.obterDataFormatada(new Date()));
+		movPage.setDataPagamento(DataUtils.obterDataFormatada(new Date()));
 		movPage.setDescricao("Movimentação do Teste");
 		movPage.setInteressado("Interessado Qualquer");
 		movPage.setValor("500");
@@ -36,8 +36,8 @@ public class MovimentacaoTest extends BaseTest {
 		
 		movPage.salvar();
 		List<String> erros = movPage.obterErros();
-//		Assert.assertEquals("Data da MovimentaÃ§Ã£o Ã© obrigatÃ³rio", erros.get(0));
-//		Assert.assertTrue(erros.contains("Data da MovimentaÃ§Ã£o Ã© obrigatÃ³rio"));
+//		Assert.assertEquals("Data da Movimentação é obrigatório", erros.get(0));
+//		Assert.assertTrue(erros.contains("Data da Movimentação é obrigatório"));
 		Assert.assertTrue(erros.containsAll(Arrays.asList(
 				"Data da Movimentação é obrigatório", "Data do pagamento é obrigatório",
 				"Descrição é obrigatório", "Interessado é obrigatório", 
