@@ -4,23 +4,18 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import org.junit.Assert;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
-
 import br.ce.wcaquino.core.BaseTest;
-import br.ce.wcaquino.core.Propriedades;
 import br.ce.wcaquino.page.MenuPage;
 import br.ce.wcaquino.page.MovimentacaoPage;
 import br.ce.wcaquino.util.DataUtils;
 
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MovimentacaoTest extends BaseTest {
 	private MenuPage menuPage = new MenuPage();
 	private MovimentacaoPage movPage = new MovimentacaoPage();
 
 	@Test
-	public void test1_InserirMovimentacao(){
+	public void testInserirMovimentacao(){
 		menuPage.acessarTelaInserirMovimentacao();
 		
 		movPage.setDataMovimentacao(DataUtils.obterDataFormatada(new Date()));
@@ -28,7 +23,7 @@ public class MovimentacaoTest extends BaseTest {
 		movPage.setDescricao("Movimentação do Teste");
 		movPage.setInteressado("Interessado Qualquer");
 		movPage.setValor("500");
-		movPage.setConta(Propriedades.NOME_CONTA_ALTERADA);
+		movPage.setConta("Conta para movimentacoes");
 		movPage.setStatusPago();
 		movPage.salvar();
 		
@@ -36,7 +31,7 @@ public class MovimentacaoTest extends BaseTest {
 	}
 	
 	@Test
-	public void test3_InserirMovimentacaoFutura(){
+	public void testInserirMovimentacaoFutura(){
 		menuPage.acessarTelaInserirMovimentacao();
 		
 		Date dataFutura = DataUtils.obterDataComDiferencaDias(5);
@@ -46,7 +41,7 @@ public class MovimentacaoTest extends BaseTest {
 		movPage.setDescricao("Movimentação do Teste");
 		movPage.setInteressado("Interessado Qualquer");
 		movPage.setValor("500");
-		movPage.setConta(Propriedades.NOME_CONTA_ALTERADA);
+		movPage.setConta("Conta para movimentacoes");
 		movPage.setStatusPago();
 		movPage.salvar();
 		
@@ -57,7 +52,7 @@ public class MovimentacaoTest extends BaseTest {
 	}
 	
 	@Test
-	public void test2_CamposObrigatorios(){
+	public void testCamposObrigatorios(){
 		menuPage.acessarTelaInserirMovimentacao();
 		
 		movPage.salvar();
